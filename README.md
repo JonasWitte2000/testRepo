@@ -4,8 +4,7 @@ Not all of us have worked with GIT before, so to get us all off to a good start 
 ---------------------------------------------------------------------
 #Your task 
 
-Please add your name to the document "name.txt" by first cloning the repo, then adding your name to the document, and then pushing the repo again.
-
+Please add your name to the document "name.txt" by first cloning the repo, create a new branch, then adding your name to the document, and then send a pull request.
 
 If you have any questions, feel free to contact me (Jonas)! 
 
