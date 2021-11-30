@@ -1,4 +1,4 @@
-
+# these are lists of fingerprinting metrics and recommendations
 fingerprinting_metrics = [
 "Average Throughput Rate ",
 "Average Lead Time for User Story ",
@@ -66,3 +66,4 @@ recommendations = [
 "Investigate deployment pipeline",
 "Deploy PRs more often",
 ]
+

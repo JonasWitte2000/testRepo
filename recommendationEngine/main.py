@@ -1,9 +1,12 @@
+# basically the same thing as in correlation.ipynb
 import numpy as np
 import pandas as pd
 from util import *
+
 df = pd.DataFrame(np.random.rand(150,len(fingerprinting_metrics)), columns=fingerprinting_metrics)
 
-matrix = np.asmatrix(np.random.rand(len(recommendations),len(fingerprinting_metrics)))
+matrix = np.matrix([[ np.random.uniform(-1,1) for y in fingerprinting_metrics] for x in recommendations])
+matrix_df = pd.DataFrame(matrix, index = recommendations, columns = fingerprinting_metrics)
 
 def cosine_similarity(list1, list2):
         dotprod = 0
@@ -22,5 +25,9 @@ def give_recommendation_based_on_correlation_matrix(matrix, fingerprinting_vecto
     cos_sim_list.sort(key = lambda x: x["sim"], reverse=True)
     recommendation = recommendations[cos_sim_list[0]["id"]]
     return recommendation
+
 res = [give_recommendation_based_on_correlation_matrix(matrix.tolist(),row.to_list()) for i,row in df.iterrows()]
-df["top 1 recommendation"] = res
+df["recommended actions"] = res
+
+metrics_level = np.matrix([sorted([np.random.uniform(0,1) for x in range(0,4)]) for x in recommendations])
+metrics_level_df = pd.DataFrame(metrics_level, index = recommendations, columns=["low","medium","high","elite"])
